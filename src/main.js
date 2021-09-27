@@ -1,5 +1,5 @@
-// DOM Elements
 const time = document.getElementById('time'),
+    date = document.getElementById('date'),
     greeting = document.getElementById('greeting'),
     name = document.getElementById('name'),
     focus = document.getElementById('focus');
@@ -8,16 +8,22 @@ let imgIndex = (new Date()).getHours();
 
 
 function showTime() {
-    // Output Time
     time.innerHTML = new Date().toLocaleString('en-GB', {
+        hour12: false,
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+    });
+    setTimeout(showTime, 1000);
+}
+
+function showDate() {
+    date.innerHTML = new Date().toLocaleString('en-GB', {
         year: 'numeric',
         hour12: false,
         weekday: 'long',
         month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric'
+        day: 'numeric'
     });
     setTimeout(showTime, 1000);
 }
@@ -27,21 +33,17 @@ function setBgGreet() {
     let today = new Date(),
         hour = today.getHours();
     if (hour >= 6 && hour < 12) {
-        // Morning
         greeting.textContent = 'Good Morning, ';
     } else if (hour >= 12 && hour < 18) {
-        // Afternoon
         greeting.textContent = 'Good Afternoon, ';
     } else if (hour >= 18 && hour < 24) {
-        // Evening
         greeting.textContent = 'Good Evening, ';
     } else {
-        // Night
         greeting.textContent = 'Good Night, ';
     }
 }
 
-// Get Name
+
 function getName() {
     if (localStorage.getItem('name') === null || localStorage.getItem('name').trim() === "") {
         name.innerText = '[Enter Name]';
@@ -122,6 +124,7 @@ inputLocation.addEventListener('focus', clearAtFocus);
 
 // Run
 showTime();
+showDate();
 setBgGreet();
 getName();
 getFocus();
