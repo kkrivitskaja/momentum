@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/owfont-regular.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Momentum</title>
+</head>
+
+<body>
+    <main>
+        <section class='quite-container'>
+            <div class="blockquote">
+                <figure class="quote">
+                    <blockquote>
+                    </blockquote>
+                    <button class="btn__quote " title="change quote"> </button>
+                </figure>
+            </div>
+        </section>
+        <section class='weather-container'>
+            <div class="weather__container">
+                <i class="weather__icon owf"></i>
+                <span class="location" contenteditable="true"></span>
+                <div class="temperature"></div>
+                <div class="windSpeed"></div>
+                <div class="wetness"></div>
+                <div class="weather__discription"></div>
+            </div>
+        </section>
+        <section class='time-container'>
+            <time id="time"></time>
+        </section>
+        <section class='greeting-container'>
+            <h1>
+                <span id="greeting"></span>
+            </h1>
+            <h2>
+                <span id="name" contenteditable="true"></span>
+            </h2>
+        </section>
+        <section class='focus-container'>
+            <div class="focus__container">
+                <h2> <span> What is Your Focus For Today?</span>
+                </h2>
+                <h2>
+                    <span id="focus" contenteditable="true"></span>
+                </h2>
+                <div>
+                    <button class="btn" title="change image"> </button>
+                </div>
+            </div>
+        </section>
+        <section class='todo-container'>
+            <h2>Todo</h2>
+            <ul class='task'></ul>
+            <input type="text">
+            <button>Add task</button>
+        </section>
+        <!-- <div class="tmgr__container">
+        </div> -->
+        <script src="./main.js"></script>
+    </main>
+</body>
+
+</html>
