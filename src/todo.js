@@ -3,24 +3,24 @@ const todoButton = document.querySelector('.todo-btn');
 const todoList = document.querySelector('.task-list');
 const filterTask = document.querySelector('.todo-filter');
 
-document.addEventListener('DOMContentLoaded', getTodos)
+document.addEventListener('DOMContentLoaded', getTodos);
 todoButton.addEventListener('click', addTodo);
-todoList.addEventListener('click', deleteTodo);
+todoList.addEventListener('click', deleteCheck);
 filterTask.addEventListener('click', filterTodo);
 
 function addTodo(event) {
     event.preventDefault();
 
-    const todoDiv = document.createElement('div')
-    todoDiv.classList.add('todo')
+    const todoDiv = document.createElement('div');
+    todoDiv.classList.add('todo');
 
-    const newTodo = document.createElement('li')
+    const newTodo = document.createElement('li');
     newTodo.innerText = todoInput.value;
     saveLocalTodos(todoInput.value);
     newTodo.classList.add('todo-item');
     todoDiv.appendChild(newTodo);
     todoInput.value = '';
-    
+
     const completeBtn = document.createElement('button');
     completeBtn.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
     completeBtn.classList.add('complete-btn');
@@ -31,25 +31,27 @@ function addTodo(event) {
     trashBtn.classList.add('trash-btn');
     todoDiv.appendChild(trashBtn);
     todoList.appendChild(todoDiv);
-    
 }
 
-// function deleteCheck(event) {
-//     const item = event.target;
 
-//     if (item.classList[0] === 'trash-btn') {
-//         const todo = item.parentElement;
-//         todo.classList.add('fall')
-//         removeLocalTodos(todo);
-//         todo.addEventListener('transitioned', () => {
-//             todo.remove();
-//         });
-//     }
-//     if (item.classList[0] === 'complete-btn') {
-//         const todo = item.parentElement;
-//         todo.classList.toggle('completed')
-//     }
-// }
+function deleteCheck(event) {
+    const item = event.target;
+
+    if (item.classList[0] === 'trash-btn') {
+        const todo = item.parentElement;
+        todo.classList.add('fall');
+
+        removeLocalTodos(todo);
+        todo.addEventListener('transitionend', (e) => {
+            todo.remove();
+        });
+    }
+    if (item.classList[0] === 'complete-btn') {
+        const todo = item.parentElement;
+        todo.classList.toggle('completed');
+        console.log(todo);
+    }
+}
 
 function filterTodo(event) {
     const todos = todoList.childNodes;
@@ -72,7 +74,7 @@ function filterTodo(event) {
                     todo.style.display = 'none';
                 }
         }
-    })
+    });
 }
 
 function saveLocalTodos(todo) {
@@ -83,7 +85,7 @@ function saveLocalTodos(todo) {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
     todos.push(todo);
-    localStorage.setItem('todos', JSON.stringify(todos))
+    localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 function getTodos() {
@@ -124,29 +126,6 @@ function removeLocalTodos(todo) {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
     const todoIndex = todo.children[0].innerText;
-     todos.splice(todos.indexOf(todoIndex), 1);
-     localStorage.setItem('todos', JSON.stringify(todos));
+    todos.splice(todos.indexOf(todoIndex), 1);
+    localStorage.setItem('todos', JSON.stringify(todos));
 }
-
-
-
-function deleteTodo(e) {
-    const item = e.target;
-
-    if (item.classList[0] === 'trash-btn') {
-        // e.target.parentElement.remove();
-        const todo = item.parentElement;
-        todo.classList.add('fall');
-        //at the end
-        removeLocalTodos(todo);
-        todo.addEventListener('transitionend', (e) => {
-            todo.remove();
-        });
-    }
-    if (item.classList[0] === 'complete-btn') {
-        const todo = item.parentElement;
-        todo.classList.toggle('completed');
-        console.log(todo);
-    }
-}
-
