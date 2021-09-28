@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/owfont-regular.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Momentum</title>
@@ -44,7 +46,7 @@
                 <span id="greeting"></span>
             </h2>
             <h2>
-<span id="name" contenteditable="true"></span>
+                <span id="name" contenteditable="true"></span>
             </h2>
         </section>
         <section class='focus-container'>
@@ -58,13 +60,28 @@
     </div>
     <div class='todo-wrapper'>
         <section class='todo-container'>
-            <h2>Todo</h2>
-            <ul class='task'></ul>
-            <input type="text">
-            <button>Add task</button>
+            <h4>Todo</h4>
+            <div class='task-container'>
+                <ul class='task-list'></ul>
+            </div>
+            <form>
+                <input class='todo-input' type="text">
+                <button class='todo-btn' type="submit">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+                <div class='todo-select'>
+                    <select class='todo-filter' name="todos" id="">
+                        <option value="all">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="uncompleted">Uncompleted</option>
+                    </select>
+                </div>
+            </form>
+            
         </section>
     </div>
     <script src="./main.js"></script>
+    <script src="./todo.js"></script>
 
 </body>
 

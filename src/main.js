@@ -68,7 +68,7 @@ function setNameBlur(e) {
     }
 }
 
-// Get Focus
+
 function getFocus() {
     if ((localStorage.getItem('focus') === null || localStorage.getItem('focus').trim() === "")) {
         focus.innerText = '[Enter Focus]';
@@ -78,7 +78,7 @@ function getFocus() {
     }
 }
 
-// Set Focus
+
 function setFocusBlur(e) {
     if (e.target.innerText.trim() === "") {
         e.target.textContent = localStorage.getItem('focus');
@@ -110,7 +110,7 @@ focus.addEventListener('focus', clearAtFocus);
 changeBackgrounButton.addEventListener('click', updateBackgroundImage);
 
 
-// ссылки  на элементы 
+
 const weatherIcon = document.querySelector('.weather__icon'),
     temperature = document.querySelector('.temperature'),
     windSpeed = document.querySelector('.windSpeed'),
@@ -122,7 +122,7 @@ inputLocation.addEventListener('keypress', onKeyPress);
 inputLocation.addEventListener('blur', setLocationBlur);
 inputLocation.addEventListener('focus', clearAtFocus);
 
-// Run
+
 showTime();
 showDate();
 setBgGreet();

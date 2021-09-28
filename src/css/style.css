@@ -1,6 +1,9 @@
 * {
     margin: 0;
     padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
 }
 
 body {
@@ -13,9 +16,6 @@ body {
     font-family: 'Montserrat',
         sans-serif;
     color: #ffffff;
-    text-shadow: #00008b 1px 1px 2px,
-        #0f0f0f -1px -1px 0,
-        #000000 1px -1px 0;
     background: no-repeat center center fixed;
     transition: 0.5s ease-out;
 }
@@ -24,7 +24,6 @@ body {
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
-    /* height: 180px; */
 }
 
 .quite-container {
@@ -48,6 +47,7 @@ body {
     height: 30px;
     border: none;
     background: url("https://www.pngarts.com/files/7/Update-Button-PNG-Image.png");
+    /* url(chrome-extension://kbfnbcaeplbcioakkpcpgfkobkghlhen/src/images/a6a1f6d03231ec43383d24b26cd7eee6/gbtn-grammarly.svg) */
     background-size: contain;
     background-repeat: no-repeat;
     filter: grayscale(1);
@@ -65,6 +65,10 @@ body {
 .weather__container {
     font-size: 0.8rem;
     width: 140px;
+}
+
+.weather-icon:hover {
+    animation: shake 1.5s;
 }
 
 .location {
@@ -117,55 +121,135 @@ body {
 
 .todo-wrapper {
     display: flex;
-    justify-content: end;
-    margin: 0 15px 20px;
+    justify-content: center;
+    margin: 0 25px 20px;
+    /* width: 250px; */
 }
 
+form {
+    min-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/* @keyframes bounce {
+form input,
+form button,
+.trash-btn,
+.complete-btn,
+.todo-select {
+    padding: 3px 3px;
+    font-size: 18px;
+    background: rgb(255, 255, 255);
+    color: rgb(5, 5, 5);
+    /* border-radius: 5px; */
+}
 
-    0%,
-    20%,
-    60%,
-    100% {
-        transform: translateY(0);
-        transform: translateY(0);
-    }
+form button,
+.trash-btn,
+.complete-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-content: center;
+}
 
-    40% {
-        transform: translateY(-10px);
-        transform: translateY(-10px);
-    }
+form button:hover,
+.trash-btn:hover,
+.complete-btn:hover {
+    background: rgb(8, 8, 8);
+    color: white;
+}
 
-    80% {
-        transform: translateY(-5px);
-        transform: translateY(-5px);
-    }
-} */
+.task-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.task-list {
+    min-width: 102%;
+    list-style: none;
+}
 
-.btn:active,
-.btn:focus,
-.btn__quote:active,
-.btn__quote:focus {
+.todo {
+    margin: 0.2rem;
+    background: white;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+.todo li {
+    flex: 1;
+}
+
+.todo-item {
+    padding: 0 4px;
+}
+
+.fa-trash,
+.fa-check {
+    pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: rgb(105, 104, 104);
+}
+
+.fall {
+    /* transform: translateY(10rem) rotateZ(20deg); */
+    opacity: 0;
+}
+
+.todo-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
     outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background-image: none;
 }
 
-/* .btn:active,
-.btn__quote:active {
-    transform: scale(1.02)
-} */
+.todo-select {
+    margin-left: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.todo-filter {
+    cursor: pointer;
+    color: #0e0d0d;
+    width: 6.7rem;
+}
+
+.todo-select::after {
+    content: "\25bc";
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 3px;
+    width: 20px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.todo-select:hover::after {
+    background: rgb(231, 230, 230);
+}
 
 
-
-@media (max-width: 700px) {
+*/ @media (max-width: 700px) {
     #time {
         font-size: 30px;
     }
-}
-
-.weather-icon:hover {
-    animation: shake 1.5s;
 }
 
 @keyframes shake {
@@ -193,3 +277,45 @@ body {
         transform: translate(1px, 2px) rotate(0deg);
     }
 }
+
+
+/* .btn:active,
+.btn:focus,
+.btn__quote:active,
+.btn__quote:focus {
+    outline: 0;
+} */
+
+/* @keyframes bounce {
+
+    0%,
+    20%,
+    60%,
+    100% {
+        transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    80% {
+        transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+} */
+
+
+/* .btn:active,
+.btn:focus,
+.btn__quote:active,
+.btn__quote:focus {
+    outline: 0;
+} */
+
+/* .btn:active,
+.btn__quote:active {
+    transform: scale(1.02)
+} */
