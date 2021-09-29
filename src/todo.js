@@ -8,31 +8,31 @@ todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
 filterTask.addEventListener('click', filterTodo);
 
+function createElement(elementType, parentElement, className) {
+    const element = document.createElement(elementType);
+    if (className) {
+        element.className = className;
+    }
+    parentElement.appendChild(element);
+    return element;
+}
+
 function addTodo(event) {
     event.preventDefault();
 
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add('todo');
+    const todoDiv = createElement('div', todoList, 'todo');
 
-    const newTodo = document.createElement('li');
+    const newTodo = createElement('li', todoDiv, 'todo-item');
     newTodo.innerText = todoInput.value;
     saveLocalTodos(todoInput.value);
-    newTodo.classList.add('todo-item');
-    todoDiv.appendChild(newTodo);
     todoInput.value = '';
 
-    const completeBtn = document.createElement('button');
+    const completeBtn = createElement('button', todoDiv, 'complete-btn');
     completeBtn.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
-    completeBtn.classList.add('complete-btn');
-    todoDiv.appendChild(completeBtn);
 
-    const trashBtn = document.createElement('button');
+    const trashBtn = createElement('button', todoDiv, 'trash-btn');
     trashBtn.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
-    trashBtn.classList.add('trash-btn');
-    todoDiv.appendChild(trashBtn);
-    todoList.appendChild(todoDiv);
 }
-
 
 function deleteCheck(event) {
     const item = event.target;
@@ -49,7 +49,6 @@ function deleteCheck(event) {
     if (item.classList[0] === 'complete-btn') {
         const todo = item.parentElement;
         todo.classList.toggle('completed');
-        console.log(todo);
     }
 }
 
