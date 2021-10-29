@@ -1,23 +1,23 @@
 * {
-    margin: 0;
-    padding: 0;
     border: none;
-    outline: none;
     box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    padding: 0;
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    min-width: 320px;
+    background: no-repeat center center fixed;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     font-family: 'Montserrat',
         sans-serif;
-    color: #ffffff;
-    background: no-repeat center center fixed;
+    height: 100vh;
+    justify-content: space-between;
+    min-width: 320px;
     transition: 0.5s ease-out;
+    width: 100vw;
 }
 
 .qw-wrapper {
@@ -32,9 +32,9 @@ body {
 }
 
 .blockquote {
-    width: 500px;
     display: flex;
     justify-content: space-around;
+    width: 500px;
 }
 
 .quote {
@@ -43,29 +43,28 @@ body {
 
 .btn__quote,
 .btn {
-    width: 30px;
-    height: 30px;
-    border: none;
-    background: url("https://www.pngarts.com/files/7/Update-Button-PNG-Image.png");
-    /* url(chrome-extension://kbfnbcaeplbcioakkpcpgfkobkghlhen/src/images/a6a1f6d03231ec43383d24b26cd7eee6/gbtn-grammarly.svg) */
+    background: url("https://www.pngarts.com/files/7/Update-Button-PNG-Image.png") no-repeat;
     background-size: contain;
-    background-repeat: no-repeat;
+    border: none;
     filter: grayscale(1);
+    height: 30px;
+    /* url(chrome-extension://kbfnbcaeplbcioakkpcpgfkobkghlhen/src/images/a6a1f6d03231ec43383d24b26cd7eee6/gbtn-grammarly.svg) */
     transition: all 0.8s ease-in-out;
+    width: 30px;
 }
 
 .btn:hover,
 .btn__quote:hover {
-    filter: grayscale(.5);
-    cursor: pointer;
     animation: bounce 1s;
+    cursor: pointer;
+    filter: grayscale(.5);
     transform: rotate(360deg);
 }
 
 .weather__container {
     font-size: 0.8rem;
-    width: 140px;
     margin-left: 10px;
+    width: 140px;
 }
 
 .weather-icon:hover {
@@ -78,16 +77,16 @@ body {
 }
 
 .main-content {
-    height: 300px;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 300px;
     justify-content: space-between;
 }
 
 #time {
-    font-size: 80px;
     font-family: monospace;
+    font-size: 80px;
 }
 
 #date {
@@ -97,11 +96,11 @@ body {
 
 #name,
 #focus {
+    align-items: center;
     display: inline-block;
-    min-width: 220px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    min-width: 220px;
 }
 
 #focus {
@@ -116,9 +115,9 @@ body {
 }
 
 .time-container {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .time-container {
@@ -137,12 +136,12 @@ body {
 
 .modal-content {
     background-color: rgb(241, 236, 236);
-    position: fixed;
-    z-index: 1;
-    bottom: 60px;
-    right: 20px;
-    padding: 5px;
     border-radius: 6px;
+    bottom: 60px;
+    padding: 5px;
+    position: fixed;
+    right: 20px;
+    z-index: 1;
 }
 
 .show {
@@ -156,10 +155,9 @@ body {
 }
 
 form {
-    min-height: 20px;
-    display: flex;
-    /* justify-content: center; */
     align-items: center;
+    display: flex;
+    min-height: 20px;
 }
 
 form input,
@@ -167,18 +165,18 @@ form button,
 .trash-btn,
 .complete-btn,
 .todo-select {
-    padding: 3px 3px;
-    font-size: 18px;
     background: rgb(255, 255, 255);
     color: rgb(5, 5, 5);
+    font-size: 18px;
+    padding: 3px 3px;
 }
 
 form button,
 .trash-btn,
 .complete-btn {
+    align-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    align-content: center;
 }
 
 form button:hover,
@@ -189,24 +187,23 @@ form button:hover,
 }
 
 .task-container {
-    display: flex;
-    /* justify-content: center; */
     align-items: center;
+    display: flex;
 }
 
 .task-list {
-    min-width: 100%;
     list-style: none;
+    min-width: 100%;
 }
 
 .todo {
-    margin: 0.2rem 0;
+    align-items: center;
     background: white;
-    font-size: 18px;
     color: rgb(0, 0, 0);
     display: flex;
+    font-size: 18px;
     justify-content: space-between;
-    align-items: center;
+    margin: 0.2rem 0;
     transition: all 0.3s ease;
 }
 
@@ -224,8 +221,8 @@ form button:hover,
 }
 
 .completed {
-    text-decoration: line-through;
     color: rgb(105, 104, 104);
+    text-decoration: line-through;
 }
 
 .fall {
@@ -238,15 +235,14 @@ form button:hover,
     -moz-appearance: none;
     -ms-appearance: none;
     appearance: none;
-    outline: 0;
-    box-shadow: none;
-    border: 0 !important;
     background-image: none;
+    border: 0 !important;
+    box-shadow: none;
+    outline: 0;
 }
 
 .todo-select {
-    /* margin-left: 0.5rem; */
-    position: relative;
+        position: relative;
     overflow: hidden;
     width: 6.5rem;
 
@@ -255,21 +251,7 @@ form button:hover,
 .todo-filter {
     cursor: pointer;
     color: #0e0d0d;
-    /* width: 7rem; */
-}
-
-/* .todo-select::after {
-    content: "\25bc";
-    /* position: absolute; */
-/* top: 0;
-    right: 0;
-    padding: 3px;
-    width: 5px;
-    border-radius: 50%;
-    background: rgb(255, 255, 255);
-    cursor: pointer;
-    pointer-events: none;
-}  */
+    }
 
 .todo-select:hover::after {
     background: rgb(231, 230, 230);
@@ -278,19 +260,18 @@ form button:hover,
 
 @media (max-width: 700px) {
     .qw-wrapper {
-        padding-top: 5px;
         display: flex;
         flex-direction: column-reverse;
         justify-content: space-between;
+        padding-top: 5px;
     }
 
     .blockquote {
-        width: 310px;
-        margin-top: 5px;
-        text-align: left;
-        margin-left: 10px;
         display: flex;
         flex-direction: column-reverse;
+        margin-top: 5px 0 0 10px;
+                width: 310px;
+        text-align: left;
     }
 
     .btn,
@@ -298,11 +279,12 @@ form button:hover,
         margin: 3px 0;
     }
 
-.quote{
-    height: 100px;
-}
+    .quote {
+        height: 100px;
+    }
+
     .weather__container {
-       
+
         font-size: 0.7rem;
         margin-left: 10px;
     }
@@ -320,8 +302,8 @@ form button:hover,
     .greeting-container,
     .focus-container {
         font-size: 16px;
-        width: 300px;
         text-align: center;
+        width: 300px;
     }
 
     .todo-wrapper {
