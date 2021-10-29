@@ -60,24 +60,27 @@
     </div>
     <div class='todo-wrapper'>
         <section class='todo-container'>
-            <h4>Todo</h4>
-            <div class='task-container'>
-                <ul class='task-list'></ul>
-            </div>
-            <form>
-                <input class='todo-input' type="text">
-                <button class='todo-btn' type="submit">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                </button>
-                <div class='todo-select'>
-                    <select class='todo-filter' name="todos" id="">
-                        <option value="all">All</option>
-                        <option value="completed">Completed</option>
-                        <option value="uncompleted">Uncompleted</option>
-                    </select>
+            <button id='modal-btn'>Todo</button>
+            <div class='modal'>
+                <div class='modal-content'>
+                    <div class='todo-select'>
+                        <select class='todo-filter' name="todos" id="">
+                            <option value="all">All</option>
+                            <option value="completed">Completed</option>
+                            <option value="uncompleted">Uncompleted</option>
+                        </select>
+                    </div>
+                    <div class='task-container'>
+                        <ul class='task-list'></ul>
+                    </div>
+                    <form>
+                        <input class='todo-input' type="text">
+                        <button class='todo-btn' type="submit">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </form>
                 </div>
-            </form>
-            
+            </div>
         </section>
     </div>
     <script src="./main.js"></script>

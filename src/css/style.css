@@ -65,6 +65,7 @@ body {
 .weather__container {
     font-size: 0.8rem;
     width: 140px;
+    margin-left: 10px;
 }
 
 .weather-icon:hover {
@@ -85,8 +86,13 @@ body {
 }
 
 #time {
-    font-size: 70px;
+    font-size: 80px;
     font-family: monospace;
+}
+
+#date {
+    font-size: 30px;
+    text-align: center;
 }
 
 #name,
@@ -121,15 +127,38 @@ body {
 
 .todo-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     margin: 0 25px 20px;
-    /* width: 250px; */
+}
+
+.modal {
+    display: none;
+}
+
+.modal-content {
+    background-color: rgb(241, 236, 236);
+    position: fixed;
+    z-index: 1;
+    bottom: 60px;
+    right: 20px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.show {
+    display: block;
+}
+
+#modal-btn {
+    background-color: Transparent;
+    color: white;
+    font-size: 24px;
 }
 
 form {
     min-height: 20px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 
@@ -142,7 +171,6 @@ form button,
     font-size: 18px;
     background: rgb(255, 255, 255);
     color: rgb(5, 5, 5);
-    /* border-radius: 5px; */
 }
 
 form button,
@@ -162,17 +190,17 @@ form button:hover,
 
 .task-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 
 .task-list {
-    min-width: 102%;
+    min-width: 100%;
     list-style: none;
 }
 
 .todo {
-    margin: 0.2rem;
+    margin: 0.2rem 0;
     background: white;
     font-size: 18px;
     color: rgb(0, 0, 0);
@@ -217,38 +245,122 @@ form button:hover,
 }
 
 .todo-select {
-    margin-left: 0.5rem;
+    /* margin-left: 0.5rem; */
     position: relative;
     overflow: hidden;
+    width: 6.5rem;
+
 }
 
 .todo-filter {
     cursor: pointer;
     color: #0e0d0d;
-    width: 6.7rem;
+    /* width: 7rem; */
 }
 
-.todo-select::after {
+/* .todo-select::after {
     content: "\25bc";
-    position: absolute;
-    top: 0;
+    /* position: absolute; */
+/* top: 0;
     right: 0;
     padding: 3px;
-    width: 20px;
+    width: 5px;
     border-radius: 50%;
     background: rgb(255, 255, 255);
     cursor: pointer;
     pointer-events: none;
-}
+}  */
 
 .todo-select:hover::after {
     background: rgb(231, 230, 230);
 }
 
 
-*/ @media (max-width: 700px) {
-    #time {
+@media (max-width: 700px) {
+    .qw-wrapper {
+        padding-top: 5px;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+    }
+
+    .blockquote {
+        width: 310px;
+        margin-top: 5px;
+        text-align: left;
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .btn,
+    .btn__quote {
+        margin: 3px 0;
+    }
+
+.quote{
+    height: 100px;
+}
+    .weather__container {
+       
+        font-size: 0.7rem;
+        margin-left: 10px;
+    }
+
+    #time,
+    #date {
         font-size: 30px;
+    }
+
+    #focus,
+    #name {
+        min-width: 300px;
+    }
+
+    .greeting-container,
+    .focus-container {
+        font-size: 16px;
+        width: 300px;
+        text-align: center;
+    }
+
+    .todo-wrapper {
+        margin: 0 25px 5px;
+    }
+
+    .modal-content {
+        font-size: 16px;
+    }
+
+    #modal-btn {
+        font-size: 20px;
+    }
+
+    .modal-content {
+        bottom: 35px;
+        right: 10px;
+        width: 227px;
+    }
+
+    form {
+        min-height: 15px;
+    }
+
+    form input,
+    form button,
+    .trash-btn,
+    .complete-btn,
+    .todo-select {
+        font-size: 15px;
+
+    }
+
+    .task-list {
+        min-width: 100%;
+    }
+
+    .todo-filter {
+        width: 6.5rem;
     }
 }
 
@@ -277,45 +389,3 @@ form button:hover,
         transform: translate(1px, 2px) rotate(0deg);
     }
 }
-
-
-/* .btn:active,
-.btn:focus,
-.btn__quote:active,
-.btn__quote:focus {
-    outline: 0;
-} */
-
-/* @keyframes bounce {
-
-    0%,
-    20%,
-    60%,
-    100% {
-        transform: translateY(0);
-        transform: translateY(0);
-    }
-
-    40% {
-        transform: translateY(-10px);
-        transform: translateY(-10px);
-    }
-
-    80% {
-        transform: translateY(-5px);
-        transform: translateY(-5px);
-    }
-} */
-
-
-/* .btn:active,
-.btn:focus,
-.btn__quote:active,
-.btn__quote:focus {
-    outline: 0;
-} */
-
-/* .btn:active,
-.btn__quote:active {
-    transform: scale(1.02)
-} */

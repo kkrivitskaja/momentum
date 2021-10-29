@@ -28,7 +28,6 @@ function showDate() {
     setTimeout(showTime, 1000);
 }
 
-
 function setBgGreet() {
     let today = new Date(),
         hour = today.getHours();
@@ -42,7 +41,6 @@ function setBgGreet() {
         greeting.textContent = 'Good Night, ';
     }
 }
-
 
 function getName() {
     if (localStorage.getItem('name') === null || localStorage.getItem('name').trim() === "") {
@@ -68,7 +66,6 @@ function setNameBlur(e) {
     }
 }
 
-
 function getFocus() {
     if ((localStorage.getItem('focus') === null || localStorage.getItem('focus').trim() === "")) {
         focus.innerText = '[Enter Focus]';
@@ -78,7 +75,6 @@ function getFocus() {
     }
 }
 
-
 function setFocusBlur(e) {
     if (e.target.innerText.trim() === "") {
         e.target.textContent = localStorage.getItem('focus');
@@ -87,8 +83,6 @@ function setFocusBlur(e) {
         localStorage.setItem('focus', e.target.innerText);
     }
 }
-
-
 
 const imgUrlArray = getImgArrayUrl(),
     base = `./img/`;
@@ -108,8 +102,6 @@ focus.addEventListener('blur', setFocusBlur);
 focus.addEventListener('focus', clearAtFocus);
 
 changeBackgrounButton.addEventListener('click', updateBackgroundImage);
-
-
 
 const weatherIcon = document.querySelector('.weather__icon'),
     temperature = document.querySelector('.temperature'),
@@ -133,7 +125,6 @@ getLocation();
 getWeather();
 
 
-
 function updateBackgroundEveryHour() {
     updateBackgroundImage();
     setBgGreet();
@@ -146,7 +137,6 @@ function updateBackgroundEveryHour() {
     setTimeout(updateBackgroundEveryHour, tmp);
 }
 
-
 function getRandomInt(limit, count) {
     let tempArray = [];
     while (tempArray.length < count) {
@@ -157,7 +147,6 @@ function getRandomInt(limit, count) {
     }
     return tempArray;
 }
-
 
 function getImgArrayUrl() {
     return getRandomInt(20, 6).map(item => {
@@ -198,7 +187,7 @@ async function getQuote() {
     try {
         const url = `https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random`;
         res = await fetch(url, {
-            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            method: 'GET', 
             headers: {
                 'x-rapidapi-host': 'matchilling-chuck-norris-jokes-v1.p.rapidapi.com',
                 'x-rapidapi-key': 'c951b0e956msh70f65bfa2182201p10538cjsn4ff99214d9f2',
@@ -210,19 +199,18 @@ async function getQuote() {
         blockquote.textContent = data.value;
 
     } catch (err) {
-        if (res.status != 200 || res.status != 201) { // появился обработчик исключений
-            blockquote.textContent = `Service is temporary unawiable (${res.statusText}), please try later.`;
+        if (res.status != 200 || res.status != 201) {
+            //exception handler
+            blockquote.textContent = `Service is temporary unavailable (${res.statusText}), please try later.`;
             console.log(res);
         } else {
-            blockquote.textContent = `Somethig went terriblly wrong`;
+            blockquote.textContent = `Something went terribly wrong`;
             console.log(err);
         }
     } finally {
         btn__quote.disabled = false
     }
 }
-
-
 
 //city
 function getLocation() {

@@ -2,11 +2,14 @@ const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-btn');
 const todoList = document.querySelector('.task-list');
 const filterTask = document.querySelector('.todo-filter');
+const modalBtn = document.querySelector('#modal-btn');
+const modalBox = document.querySelector('.modal');
 
 document.addEventListener('DOMContentLoaded', getTodos);
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
 filterTask.addEventListener('click', filterTodo);
+modalBtn.addEventListener('click', ()=>{modalBox.classList.toggle('show');})
 
 function createElement(elementType, parentElement, className) {
     const element = document.createElement(elementType);
